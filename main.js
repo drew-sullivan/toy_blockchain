@@ -26,7 +26,7 @@ class Block {
 class Blockchain{
     constructor() {
         this.chain = [this.createGenesisBlock()];
-        this.difficulty = 3;
+        this.difficulty = 4;
     }
 
     createGenesisBlock() {
@@ -74,8 +74,11 @@ class Blockchain{
 }
 
 let blockchain = new Blockchain();
-blockchain.addBlock({ amount: 4 });
-blockchain.addBlock({ amount: 8 });
+for (let i = 0; i < 10; i++) {
+    console.log(`Mining block: ${i + 1}`);
+    const rand = Math.floor(Math.random() * 10);
+    blockchain.addBlock({ amount: rand });
+}
 
 
 
